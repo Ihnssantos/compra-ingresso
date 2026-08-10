@@ -4,11 +4,11 @@ public class Ingresso {
 
     private String nomeFesta;
     private String horario;
-    private String setor;
+    private Setor setor;
     private double preco;
     private String endereco;
 
-    public Ingresso(String nomeFesta, String horario, String setor, double preco, String endereco) {
+    public Ingresso(String nomeFesta, String horario, Setor setor, double preco, String endereco) {
         this.nomeFesta = nomeFesta;
         this.horario = horario;
         this.setor = setor;
@@ -24,7 +24,7 @@ public class Ingresso {
         return horario;
     }
 
-    public String getSetor() {
+    public Setor getSetor() {
         return setor;
     }
 

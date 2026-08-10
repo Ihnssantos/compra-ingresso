@@ -10,7 +10,7 @@ public class Compra {
     }
 
     public boolean realizarCompra() {
-        if (ingresso.getSetor().equals("VIP") || ingresso.getSetor().equals("OPEN BAR")) {
+        if (ingresso.getSetor().equals(Setor.VIP) || ingresso.getSetor().equals(Setor.OPEN_BAR)) {
             if (!pessoa.maiorIdade()) {
                 return false;
             } else {
@@ -26,7 +26,7 @@ public class Compra {
     }
 
     public boolean verificarSetor() {
-        if (ingresso.getSetor().equals("VIP") || ingresso.getSetor().equals("OPEN BAR")) {
+        if (ingresso.getSetor().equals(Setor.VIP) || ingresso.getSetor().equals(Setor.OPEN_BAR)) {
             return true;
         } else {
             return false;
