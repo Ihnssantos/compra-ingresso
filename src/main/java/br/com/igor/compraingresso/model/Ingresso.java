@@ -1,12 +1,13 @@
 package br.com.igor.compraingresso.model;
 
 import jakarta.persistence.*;
+import jakarta.persistence.GenerationType;
 
 @Entity
 public class Ingresso {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
