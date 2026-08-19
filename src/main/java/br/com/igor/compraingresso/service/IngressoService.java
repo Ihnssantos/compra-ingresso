@@ -1,19 +1,22 @@
 package br.com.igor.compraingresso.service;
 
 
-import br.com.igor.compraingresso.model.Festa;
 import br.com.igor.compraingresso.model.Ingresso;
-import br.com.igor.compraingresso.model.Setor;
 import org.springframework.stereotype.Service;
+import br.com.igor.compraingresso.repository.IngressoRepository;
+import java.util.List;
 
 @Service
 public class IngressoService {
 
-    public Ingresso listarIngresso() {
+    private IngressoRepository ingressoRepository;
 
-        Festa festa1 = new Festa("RUA", "15:00 as 00:00", "Campo meridional");
-        Ingresso ingresso1 = new Ingresso(festa1, Setor.PISTA, 80.0);
+    public IngressoService(IngressoRepository ingressoRepository) {
+        this.ingressoRepository = ingressoRepository;
+    }
 
-        return ingresso1;
+    public List<Ingresso> listarIngresso() {
+
+        return ingressoRepository.findAll();
     }
 }
