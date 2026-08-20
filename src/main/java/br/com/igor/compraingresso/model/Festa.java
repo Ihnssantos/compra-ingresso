@@ -1,39 +1,53 @@
 package br.com.igor.compraingresso.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "festa")
 public class Festa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
+
     private String nome;
-    private String horario;
+
     private String endereco;
 
-    public Festa() {}
+    private String horario;
 
-    public Festa(String nome, String horario, String endereco) {
-        this.nome = nome;
-        this.horario = horario;
-        this.endereco = endereco;
+    public Festa() {
     }
 
-    public int getId() { return id; }
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getHorario() {
         return horario;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 }

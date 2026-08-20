@@ -1,45 +1,60 @@
 package br.com.igor.compraingresso.model;
 
 import jakarta.persistence.*;
-import jakarta.persistence.GenerationType;
+
+import java.math.BigDecimal;
 
 @Entity
+@Table(name = "ingresso")
 public class Ingresso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
+
+    @Column(nullable = false)
+    private BigDecimal preco;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 50)
+    private Setor setor;
 
     @ManyToOne
+    @JoinColumn(name = "festa_id", nullable = false)
     private Festa festa;
 
-    private Setor setor;
-    private double preco;
+    public Ingresso() {
+    }
 
-    public Ingresso(){}
+    public Integer getId() {
+        return id;
+    }
 
-    public Ingresso(Festa festa, Setor setor, double preco) {
-        this.festa = festa;
-        this.setor = setor;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
+    }
+
+    public Setor getSetor() {
+        return setor;
+    }
+
+    public void setSetor(Setor setor) {
+        this.setor = setor;
     }
 
     public Festa getFesta() {
         return festa;
     }
 
-    public int getId() {
-        return id;
+    public void setFesta(Festa festa) {
+        this.festa = festa;
     }
-
-    public Setor getSetor() {
-
-        return setor;
-    }
-
-    public double getPreco() {
-
-        return preco;
-    }
-
 }

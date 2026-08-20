@@ -9,5 +9,4 @@ public class IngressApplication {
     public static void main(String[] args) {
         SpringApplication.run(IngressApplication.class, args);
     }
-
 }
